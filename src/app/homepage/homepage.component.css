@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+html, 
+body { 
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(222,97,169,1) 64%, rgba(0,212,255,1) 100%);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn {
+    white-space:normal !important; 
+    word-wrap: break-word; 
+    word-break: normal;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <a class="navbar-brand text-white" href="#">Upcoming Releases</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link text-white" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container" *ngIf="moviesData">
+        <h2 class="bg-white btn mt-3">Upcoming 50 Trending Movies</h2>
+        <div class="d-flex flex-row flex-wrap mt-2 rounded border-danger">
+            <div class="card card-block col-lg-3 col-md-6 mt-2 bg-light" *ngFor="let result of moviesData.results">
+                <div class="text-center mt-2">
+                    <img *ngIf="result.primaryImage?.url==null" src="assets/movie.jpg" width="230px" height="330px"/>
+                    <img *ngIf="result.primaryImage?.url!=null" [src]="result.primaryImage?.url" alt="Movie Image" width="230px" height="330px">
+                    <h5 class="mt-2 bg-dark btn text-white text-wrap">{{result.titleText.text}}</h5>
+                    <p>Release Date : {{result.releaseDate.day}}/{{result.releaseDate.month}}/{{result.releaseDate.year}}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+</body>
+</html>
